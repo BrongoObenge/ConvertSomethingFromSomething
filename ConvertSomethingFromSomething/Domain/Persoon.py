@@ -42,3 +42,4 @@ class Persoon:
         print "huisnummer: ", self.huisnummer
         print "toevoeging: ", self.toevoeging
         print "telefoonnummer: ", self.telefoonnummer
+

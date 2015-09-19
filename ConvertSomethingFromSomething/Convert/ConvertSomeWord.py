@@ -6,11 +6,11 @@ def convertRelatie(str):
     result = {}
     m = re.search(r1, str)
     if m:
-        result["achternaam"] = m.group(1)
-        result["voornaam"] = m.group(3)
+        result["achternaam"] = m.group(1).replace(" ", "")
+        result["voornaam"] = m.group(3).replace(" ", "")
     else:
         result["achternaam"] = str
-        result["voornaam"] = None
+        result["voornaam"] = "NULL"
 
     return result
 
@@ -23,9 +23,9 @@ def convertAdres(string):
     m = re.search(r2, string)
     m2 = re.search(r3, string)
 
-    result["adres"] = None      #Set None before adding value
-    result["huisnummer"] = None
-    result["toevoegsel"] = None
+    result["adres"] = "NULL"      #Set None before adding value
+    result["huisnummer"] = "NULL"
+    result["toevoegsel"] = "NULL"
 
     if m2:
         m3 = re.search(r4, string)
@@ -46,5 +46,7 @@ def convertPostcode(string):
     m4 = re.search(r5, string)
     if m4:
         result["postcode"] = m4.group(1)+m4.group(2)
+    else:
+        result["postcode"] = "NULL"
     return result
 
